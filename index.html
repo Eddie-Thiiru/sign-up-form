@@ -39,7 +39,7 @@
             <div class="name-input">
                 <p>
                     <label for="first-name">FIRST NAME</label>
-                    <input type="text" id="first-name">
+                    <input type="text" id="first-name" required>
                 </p>
                 <p>
                     <label for="last-name">LAST NAME</label>
@@ -49,7 +49,7 @@
             <div class="contacts-input">
                 <p>
                     <label for="email">EMAIL</label>
-                    <input type="email" id="email">
+                    <input type="email" id="email" required>
                 </p>
                 <p>
                     <label for="phone">PHONE NUMBER</label>
@@ -59,19 +59,54 @@
             <div class="password-input">
                 <p>
                     <label for="password">PASSWORD</label>
-                    <input type="password" id="password" class="error" required>
+                    <input type="password" id="password">
+                    <span class="error"></span>
                 </p>
                 <p>
                     <label for="confirm-password">CONFIRM PASSWORD</label>
-                    <input type="password" id="confirm-password" class="error" required>
+                    <input type="password" id="confirm-password" >
                 </p>
             </div>        
         </form>
         <section class="section-three">
             <button type="submit" form="my-form">Create Account</button>
-            <p>Already have an account? <a href="">Log in</a></p>
+            <p>Already have an account? <a href="" class="login-link">Log in</a></p>
         </section>
     </div>
+    <script>
+        const password = document.querySelector("#password");
+        const passwordTwo = document.querySelector("#confirm-password")
+        const button = document.querySelector("button");
+        button.addEventListener("click" , function(e) {
+        const textContentOne = password.value;
+        const textContentTwo = passwordTwo.value;
     
+        if (textContentOne === "" && textContentTwo === "") {
+            password.setCustomValidity("* Please fill in the password");
+            password.style.outline= "none";
+            passwordTwo.style.outline= "none";
+            password.style.borderColor= "red";
+            passwordTwo.style.borderColor= "red";
+            passwordTwo.value = "";
+        } else if (textContentOne !== "" && textContentTwo === "") {
+            password.setCustomValidity("");
+            passwordTwo.setCustomValidity("* Please confirm the password");
+            password.style.outline= "none";
+            passwordTwo.style.outline= "none";
+            password.style.borderColor= "red";
+            passwordTwo.style.borderColor= "red";
+        }else if(textContentOne === textContentTwo) {
+            password.setCustomValidity("");
+            passwordTwo.setCustomValidity("");
+        } else {
+            password.setCustomValidity("* Passwords do not match");
+            password.style.outline= "none";
+            passwordTwo.style.outline= "none";
+            password.style.borderColor= "red";
+            passwordTwo.style.borderColor= "red";
+            passwordTwo.value = "";
+        }
+        })
+    </script>
 </body>
 </html>
