@@ -18,6 +18,7 @@ body {
     position: relative;
     min-width: 550px;  
     display: flex; 
+    justify-content: center;
 }
 
 .background-image {
@@ -45,6 +46,17 @@ body {
 
 span {
     font-size: 80px;
+    color: white;
+}
+
+.image-footer {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    color: white;
+    position: absolute;
+    bottom: 0;
+}
+.image-footer > a {
     color: white;
 }
 
@@ -113,7 +125,7 @@ form > h2 {
 }
 
 input {
-    border: 1px solid rgb(220, 220, 220);
+    border: 1px solid #E5E7EB;
     border-radius: 5px;
     padding: 5px;
     width: 200px;
@@ -125,19 +137,24 @@ input {
     min-height: 35vh;
     padding: 10px 40px;
     box-sizing: border-box;
-  }
+}
 
-  button {
+button {
     font-weight: bold;
     color: white;
-    background-color: rgb(90, 110, 70);
+    background-color: #596D48;
     border: 1px;
     border-radius: 5px;
     margin-top: 10px;
     padding: 10px 40px;
-  }
+}
 
-  input:focus {
+.error:invalid {
+    outline: 1px solid red;
+  
+}
+
+input:focus {
     outline: 1px solid rgb(0, 100, 210);
     box-shadow: 3px 3px 6px rgb(180, 180, 180);
-  }
+}
